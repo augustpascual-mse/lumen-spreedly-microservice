@@ -28,7 +28,7 @@ Install application in an instance inside VPC in AWS OR refactor to include API 
 
 Look for //TODO and add your own logging, exception or events
 
-Add more API methods depending on business requirements
+Add more API methods depending on your business requirements
 
 ### Documentation
 
