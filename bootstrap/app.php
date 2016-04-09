@@ -23,9 +23,12 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
-// $app->withFacades();
+$app->withFacades();
 
 // $app->withEloquent();
+
+$app->configure('app');
+$app->configure('services');
 
 /*
 |--------------------------------------------------------------------------
@@ -78,9 +81,12 @@ $app->singleton(
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
-// $app->register(App\Providers\EventServiceProvider::class);
+$app->register(App\Providers\AppServiceProvider::class);
+$app->register(App\Providers\AuthServiceProvider::class);
+$app->register(App\Providers\EventServiceProvider::class);
+
+// Doctrine conflicts with Swagger annotation so ignore
+Doctrine\Common\Annotations\AnnotationReader::addGlobalIgnoredName('Swagger\Annotations\Info');
 
 /*
 |--------------------------------------------------------------------------

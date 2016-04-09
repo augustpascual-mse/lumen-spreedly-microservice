@@ -14,3 +14,9 @@
 $app->get('/', function () use ($app) {
     return $app->version();
 });
+
+$app->group(['prefix' => 'v1/payment', 'namespace' => 'App\\Http\\Controllers'], function () use ($app){
+    $app->post('/void', 'PaymentApiController@void');
+    $app->post('/refund/full', 'PaymentApiController@refundFull');
+    $app->post('/refund/partial', 'PaymentApiController@refundPartial');
+});

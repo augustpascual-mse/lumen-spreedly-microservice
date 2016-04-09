@@ -1,21 +1,35 @@
-## Lumen PHP Framework
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+## Payment Microservice
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+### Requirements:
 
-## Official Documentation
+1. Composer https://getcomposer.org/
+2. PHP and MySQL in your machine
+3. Lumen 5 System Requirements https://lumen.laravel.com/docs/5.2#server-requirements
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+### Instruction
 
-## Security Vulnerabilities
+1. Run "composer install" in the root directory
+2. Copy .env.example as .env
+3. Add appropriate values for Spreedly Service
+ex. SPREEDLY_API_URL=ABC123
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+### API
 
-### License
+void - expects JSON data with transaction_token then calls Spreedly API to void transaction
 
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+refund/full - expects JSON data with transaction_token then calls Spreedly API to refund transaction
+
+refund/partial - expects JSON data with transaction_token and amount then calls Spreedly API to partial refund transaction
+
+### Notes
+
+Install application in an instance inside VPC in AWS OR refactor to include API Key for security
+
+Look for //TODO and add your own logging, exception or events
+
+Add more API methods depending on business requirements
+
+### Documentation
+
+API documentation is generated using annotation from Swagger PHP. See public/swagger/swagger.json for sample.

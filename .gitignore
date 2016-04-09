@@ -1,2 +1,11 @@
 /vendor
+/node_modules
+Homestead.yaml
+Homestead.json
 .env
+*.log
+.idea/*
+_ide_helper.php
+.sass-cache/
+.DS_Store
+/storage
